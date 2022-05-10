@@ -38,19 +38,19 @@
         </v-app-bar>
 
         <v-main>
-            <HelloWorld/>
+            <BlocklyWorkspace/>
         </v-main>
     </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import BlocklyWorkspace from "@/components/BlocklyWorkspace";
 
 export default {
     name: 'App',
 
     components: {
-        HelloWorld,
+        BlocklyWorkspace
     },
 
     data: () => ({
