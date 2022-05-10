@@ -1,0 +1,421 @@
+{
+  "contents": [
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "controls_if"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "logic_compare"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "logic_operation"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "logic_negate"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "logic_boolean"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "logic_null"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "logic_ternary"
+        }
+      ],
+      "data-v-4615e18b": "",
+      "name": "Logic",
+      "colour": "#5b80a5"
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "controls_repeat_ext"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "controls_whileUntil"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "controls_for"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "controls_forEach"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "controls_flow_statements"
+        }
+      ],
+      "data-v-4615e18b": "",
+      "name": "Loops",
+      "colour": "#5ba55b"
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "math_number"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "math_arithmetic"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "math_single"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "math_trig"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "math_constant"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "math_number_property"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "math_round"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "math_on_list"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "math_modulo"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "math_constrain"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "math_random_int"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "math_random_float"
+        }
+      ],
+      "data-v-4615e18b": "",
+      "name": "Math",
+      "colour": "#5b67a5"
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "text"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "text_join"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "text_append"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "text_length"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "text_isEmpty"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "text_indexOf"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "text_charAt"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "text_getSubstring"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "text_changeCase"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "text_trim"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "text_print"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "text_prompt_ext"
+        }
+      ],
+      "data-v-4615e18b": "",
+      "name": "Text",
+      "colour": "#5ba58c"
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "lists_create_with"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "lists_create_with"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "lists_repeat"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "lists_length"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "lists_isEmpty"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "lists_indexOf"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "lists_getIndex"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "lists_setIndex"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "lists_getSublist"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "lists_split"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "lists_sort"
+        }
+      ],
+      "data-v-4615e18b": "",
+      "name": "Lists",
+      "colour": "#745ba5"
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "colour_picker"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "colour_random"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "colour_rgb"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "colour_blend"
+        }
+      ],
+      "data-v-4615e18b": "",
+      "name": "Colour",
+      "colour": "#a5745b"
+    },
+    {
+      "kind": "SEP",
+      "data-v-4615e18b": ""
+    },
+    {
+      "kind": "CATEGORY",
+      "data-v-4615e18b": "",
+      "name": "Variables",
+      "colour": "#a55b80",
+      "custom": "VARIABLE"
+    },
+    {
+      "kind": "CATEGORY",
+      "data-v-4615e18b": "",
+      "name": "Functions",
+      "colour": "#995ba5",
+      "custom": "PROCEDURE"
+    },
+    {
+      "kind": "SEP",
+      "data-v-4615e18b": ""
+    },
+    {
+      "kind": "CATEGORY",
+      "contents": [
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "move_motors"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "lidar_value"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "ir"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "move_motor"
+        },
+        {
+          "kind": "BLOCK",
+          "blockxml": {},
+          "data-v-4615e18b": "",
+          "type": "wait"
+        }
+      ],
+      "data-v-4615e18b": "",
+      "name": "Robot",
+      "colour": "#5ba55b"
+    }
+  ],
+  "data-v-4615e18b": "",
+  "xmlns": "https://developers.google.com/blockly/xml",
+  "style": "display: none;"
+}
