@@ -10,6 +10,17 @@
             <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
                     <v-btn icon text v-bind="attrs" v-on="on">
+                        <v-icon @click="getCode">
+                            mdi-code-tags
+                        </v-icon>
+                    </v-btn>
+                </template>
+                <span>Get Code</span>
+            </v-tooltip>
+
+            <v-tooltip bottom>
+                <template v-slot:activator="{ on, attrs }">
+                    <v-btn icon text v-bind="attrs" v-on="on">
                         <v-icon @click="save" :loading="saveLoading" :color="saveColor">
                             {{saveIcon}}
                         </v-icon>
@@ -76,6 +87,9 @@ export default {
         },
         onWorkspaceChange() {
             this.changesExist = true;
+        },
+        getCode() {
+            console.log(this.$refs.workspace.getCode());
         }
     },
     mounted() {
