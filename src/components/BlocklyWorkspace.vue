@@ -82,6 +82,9 @@ Blockly.Blocks['wait'] = {
 
 export default {
     name: 'BlocklyWorkspace',
+    data: () => ({
+        loadedIn: false
+    }),
     async mounted() {
         const options = {
             toolbox,
@@ -100,8 +103,25 @@ export default {
         };
 
         this.workspace = Blockly.inject(this.$refs.blocklyDiv, options);
-        this.workspace.addChangeListener(() => {
-            this.$emit('change');
+
+        const changeEvents = [
+            Blockly.Events.BLOCK_CREATE,
+            Blockly.Events.BLOCK_DELETE,
+            Blockly.Events.BLOCK_CHANGE,
+            Blockly.Events.BLOCK_MOVE,
+            Blockly.Events.COMMENT_CREATE,
+            Blockly.Events.COMMENT_DELETE,
+            Blockly.Events.COMMENT_CHANGE,
+            Blockly.Events.COMMENT_MOVE,
+            Blockly.Events.VAR_CREATE,
+            Blockly.Events.VAR_DELETE,
+            Blockly.Events.VAR_RENAME
+        ];
+
+        this.workspace.addChangeListener((e) => {
+            if(this.loadedIn && changeEvents.includes(e.type)) {
+                this.$emit('change');
+            }
         });
 
         const saved = await localforage.getItem('workspace');
@@ -109,6 +129,15 @@ export default {
             console.log('Got saved data!');
             Blockly.serialization.workspaces.load(JSON.parse(saved), this.workspace);
         }
+
+        const initialLoadListener = (e) => {
+            if (e.type === Blockly.Events.FINISHED_LOADING) {
+                this.loadedIn = true;
+                this.workspace.removeChangeListener(initialLoadListener);
+            }
+        };
+
+        this.workspace.addChangeListener(initialLoadListener);
     },
     methods: {
         async save() {
