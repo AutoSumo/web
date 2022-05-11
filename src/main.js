@@ -2,8 +2,13 @@ import Vue from 'vue'
 import App from './App.vue'
 import store from './store'
 import vuetify from './plugins/vuetify'
+import localforage from 'localforage'
 
-Vue.config.productionTip = false
+localforage.config({
+    name: 'autosumo'
+});
+
+Vue.config.productionTip = false;
 
 new Vue({
     store,
@@ -11,4 +16,4 @@ new Vue({
     render: function (h) {
         return h(App)
     }
-}).$mount('#app')
+}).$mount('#app');

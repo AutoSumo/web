@@ -8,6 +8,7 @@
 <script>
 import Blockly from 'blockly';
 import toolbox from '@/assets/toolbox.json';
+import localforage from "localforage";
 
 Blockly.Blocks['move_motors'] = {
     init: function() {
@@ -81,9 +82,7 @@ Blockly.Blocks['wait'] = {
 
 export default {
     name: 'BlocklyWorkspace',
-    mounted() {
-        //const toolbox = this.$refs.toolbox;
-
+    async mounted() {
         const options = {
             toolbox,
             collapse: true,
@@ -101,6 +100,21 @@ export default {
         };
 
         this.workspace = Blockly.inject(this.$refs.blocklyDiv, options);
+        this.workspace.addChangeListener(() => {
+            this.$emit('change');
+        });
+
+        const saved = await localforage.getItem('workspace');
+        if(saved !== null) {
+            console.log('Got saved data!');
+            Blockly.serialization.workspaces.load(JSON.parse(saved), this.workspace);
+        }
+    },
+    methods: {
+        async save() {
+            const saved = Blockly.serialization.workspaces.save(this.workspace);
+            await localforage.setItem('workspace', JSON.stringify(saved));
+        }
     }
 }
 </script>

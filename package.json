@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "blockly": "^8.0.2",
+    "localforage": "^1.10.0",
     "vue": "^2.6.11",
     "vuetify": "^2.6.0",
     "vuex": "^3.4.0"
