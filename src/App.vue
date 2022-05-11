@@ -1,10 +1,6 @@
 <template>
     <v-app>
-        <v-app-bar
-            app
-            color="primary"
-            dark
-        >
+        <v-app-bar app color="primary" dark>
             <div class="d-flex align-center">
                 <h2>AutoSumo</h2>
             </div>
@@ -81,6 +77,14 @@ export default {
         onWorkspaceChange() {
             this.changesExist = true;
         }
+    },
+    mounted() {
+        window.addEventListener('beforeunload', e => {
+            if(this.changesExist) {
+                e.preventDefault();
+                return e.returnValue = 'Are you sure you want to exit? You have unsaved changes.';
+            }
+        });
     }
 };
 </script>
