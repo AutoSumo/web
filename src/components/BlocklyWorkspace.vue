@@ -25,7 +25,7 @@ export default {
             disable: true,
             maxBlocks: Infinity,
             trashcan: true,
-            horizontalLayout: false,
+            horizontalLayout: (window.screen.width < window.screen.height),
             toolboxPosition: 'start',
             css: true,
             rtl: false,
