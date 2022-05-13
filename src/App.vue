@@ -11,7 +11,7 @@
                 <h4>ID: {{codeID}}</h4>
             </div>
 
-            <v-tooltip bottom>
+            <!--<v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
                     <v-btn icon text v-bind="attrs" v-on="on">
                         <v-icon @click="getCode">
@@ -20,7 +20,7 @@
                     </v-btn>
                 </template>
                 <span>Get Code</span>
-            </v-tooltip>
+            </v-tooltip>-->
 
             <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">

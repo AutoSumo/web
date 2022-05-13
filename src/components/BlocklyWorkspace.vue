@@ -10,6 +10,7 @@ import Blockly from 'blockly';
 import toolbox from '@/assets/toolbox.json';
 import localforage from 'localforage';
 import '@/blocks/robot';
+import defaultWorkspace from '@/assets/defaultWorkspace.json';
 
 export default {
     name: 'BlocklyWorkspace',
@@ -60,6 +61,8 @@ export default {
         const saved = await localforage.getItem('workspace');
         if(saved !== null) {
             Blockly.serialization.workspaces.load(JSON.parse(saved), this.workspace);
+        } else {
+            Blockly.serialization.workspaces.load(defaultWorkspace, this.workspace);
         }
 
         const initialLoadListener = (e) => {
