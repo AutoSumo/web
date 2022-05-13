@@ -7,6 +7,10 @@
 
             <v-spacer></v-spacer>
 
+            <div class="d-flex align-center" v-if="codeID !== null">
+                <h4>ID: {{codeID}}</h4>
+            </div>
+
             <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
                     <v-btn icon text v-bind="attrs" v-on="on">
@@ -49,6 +53,11 @@
 
 <script>
 import BlocklyWorkspace from "@/components/BlocklyWorkspace";
+import localforage from 'localforage';
+import Blockly from "blockly";
+import { customAlphabet } from 'nanoid';
+
+const nanoid = customAlphabet('1234567890abcdef', 6);
 
 export default {
     name: 'App',
@@ -61,7 +70,9 @@ export default {
         saveLoading: false,
         changesExist: false,
         hasSaved: false,
-        saveSnackbar: false
+        saveSnackbar: false,
+
+        codeID: null
     }),
     computed: {
         saveIcon() {
@@ -80,6 +91,15 @@ export default {
 
             await this.$refs.workspace.save();
 
+            if(this.codeID === null) {
+                this.codeID = nanoid();
+                localforage.setItem('code-id', this.codeID);
+            }
+            await fetch('https://autosumo.techchrism.me/code/upload/' + this.codeID, {
+                method: 'POST',
+                body: this.$refs.workspace.getCode()
+            });
+
             this.changesExist = false;
             this.hasSaved = true;
             this.saveLoading = false;
@@ -92,13 +112,18 @@ export default {
             console.log(this.$refs.workspace.getCode());
         }
     },
-    mounted() {
+    async mounted() {
         window.addEventListener('beforeunload', e => {
             if(this.changesExist) {
                 e.preventDefault();
                 return e.returnValue = 'Are you sure you want to exit? You have unsaved changes.';
             }
         });
+
+        const codeID = await localforage.getItem('code-id');
+        if(codeID !== null) {
+            this.codeID = codeID;
+        }
     }
 };
 </script>

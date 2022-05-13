@@ -59,7 +59,6 @@ export default {
 
         const saved = await localforage.getItem('workspace');
         if(saved !== null) {
-            console.log('Got saved data!');
             Blockly.serialization.workspaces.load(JSON.parse(saved), this.workspace);
         }
 
