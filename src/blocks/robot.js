@@ -20,6 +20,22 @@ Blockly.Blocks['move_motors'] = {
     }
 };
 
+Blockly.Blocks['move_servo'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField("move servo");
+        this.appendValueInput("angle")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("angle");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
 Blockly.Blocks['lidar_value'] = {
     init: function() {
         this.appendDummyInput()
@@ -43,20 +59,6 @@ Blockly.Blocks['ir'] = {
     }
 };
 
-Blockly.Blocks['move_motor'] = {
-    init: function() {
-        this.appendValueInput("speed")
-            .setCheck("Number")
-            .appendField("move motor")
-            .appendField(new Blockly.FieldDropdown([["left","left"], ["right","right"]]), "side");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
-
 Blockly.Blocks['wait'] = {
     init: function() {
         this.appendValueInput("seconds")
@@ -70,26 +72,42 @@ Blockly.Blocks['wait'] = {
     }
 };
 
+Blockly.Blocks['log'] = {
+    init: function() {
+        this.appendValueInput("text")
+            .setCheck("String")
+            .appendField("log");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(20);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
 
 Blockly.JavaScript['move_motors'] = block => {
     const value_left = Blockly.JavaScript.valueToCode(block, 'left', Blockly.JavaScript.ORDER_ATOMIC) || '0';
     const value_right = Blockly.JavaScript.valueToCode(block, 'right', Blockly.JavaScript.ORDER_ATOMIC) || '0';
-    return `await moveMotors(${value_left}, ${value_right});\n`;
+    return `moveMotors(${value_left}, ${value_right});\n`;
+};
+
+Blockly.JavaScript['move_servo'] = block => {
+    const value_angle = Blockly.JavaScript.valueToCode(block, 'angle', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    return `moveServo(${value_angle});\n`;
+};
+
+Blockly.JavaScript['log'] = block => {
+    const value_text = Blockly.JavaScript.valueToCode(block, 'text', Blockly.JavaScript.ORDER_ATOMIC) || '';
+    return `log(${value_text});\n`;
 };
 
 Blockly.JavaScript['lidar_value'] = (block) => {
-    return [`getLatestLidar()`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+    return [`getLidar()`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
 Blockly.JavaScript['ir'] = (block) => {
     const dropdown_side = block.getFieldValue('side');
     return [`getIR('${dropdown_side}')`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
-};
-
-Blockly.JavaScript['move_motor'] = (block) => {
-    const dropdown_side = block.getFieldValue('side') || 'left';
-    const value_speed = Blockly.JavaScript.valueToCode(block, 'speed', Blockly.JavaScript.ORDER_ATOMIC) || '0';
-    return `await moveMotor('${dropdown_side}', ${value_speed});\n`;
 };
 
 Blockly.JavaScript['wait'] = (block) => {
