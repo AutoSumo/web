@@ -7,8 +7,8 @@
 
             <v-spacer></v-spacer>
 
-            <div class="d-flex align-center" v-if="codeID !== null">
-                <h4>ID: {{codeID}}</h4>
+            <div class="d-flex align-center mr-5" v-if="codeID !== null">
+                <h3>ID: {{codeID}}</h3>
             </div>
 
             <!--<v-tooltip bottom>
@@ -24,10 +24,11 @@
 
             <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
-                    <v-btn icon text v-bind="attrs" v-on="on">
-                        <v-icon @click="save" :loading="saveLoading" :color="saveColor">
+                    <v-btn @click="save" :loading="saveLoading" :color="saveColor" text v-bind="attrs" v-on="on">
+                        <v-icon left>
                             {{saveIcon}}
                         </v-icon>
+                        Save
                     </v-btn>
                 </template>
                 <span>{{saveHover}}</span>
