@@ -115,16 +115,15 @@ Blockly.JavaScript['wait'] = (block) => {
     return `await waitSeconds(${value_seconds});\n`;
 };
 
+// From https://github.com/google/blockly/issues/2228#issuecomment-706668517
 Blockly.JavaScript['procedures_callreturn'] = function(block) {
     // Call a procedure with a return value.
-    var funcName = Blockly.JavaScript.variableDB_.getName(
-        block.getFieldValue('NAME'), Blockly.PROCEDURE_CATEGORY_NAME);
-    var args = [];
-    var variables = block.getVars();
-    for (var i = 0; i < variables.length; i++) {
-      args[i] = Blockly.JavaScript.valueToCode(block, 'ARG' + i,
-          Blockly.JavaScript.ORDER_NONE) || 'null';
+    const funcName = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.PROCEDURE_CATEGORY_NAME)
+    const args = []
+    const variables = block.getVars()
+    for (let i = 0; i < variables.length; i++) {
+        args[i] = Blockly.JavaScript.valueToCode(block, 'ARG' + i, Blockly.JavaScript.ORDER_NONE) || 'null';
     }
-    var code = 'await ' + funcName + '(' + args.join(', ') + ')';
+    const code = `await ${funcName}(${args.join(', ')})`
     return [code, Blockly.JavaScript.ORDER_AWAIT];
-  };
+};

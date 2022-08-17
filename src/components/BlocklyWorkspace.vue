@@ -81,6 +81,7 @@ export default {
             await localforage.setItem('workspace', JSON.stringify(saved));
         },
         getCode() {
+            // From https://github.com/google/blockly/issues/2228#issuecomment-706668517
             return '(async () => {\n' + Blockly.JavaScript.workspaceToCode(this.workspace).replace(/(?<=^|\n)function \w+\(.*\)/g, 'async $&') + '})();';
         }
     }
