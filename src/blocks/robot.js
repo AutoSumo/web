@@ -114,3 +114,17 @@ Blockly.JavaScript['wait'] = (block) => {
     const value_seconds = Blockly.JavaScript.valueToCode(block, 'seconds', Blockly.JavaScript.ORDER_ATOMIC) || '0';
     return `await waitSeconds(${value_seconds});\n`;
 };
+
+Blockly.JavaScript['procedures_callreturn'] = function(block) {
+    // Call a procedure with a return value.
+    var funcName = Blockly.JavaScript.variableDB_.getName(
+        block.getFieldValue('NAME'), Blockly.PROCEDURE_CATEGORY_NAME);
+    var args = [];
+    var variables = block.getVars();
+    for (var i = 0; i < variables.length; i++) {
+      args[i] = Blockly.JavaScript.valueToCode(block, 'ARG' + i,
+          Blockly.JavaScript.ORDER_NONE) || 'null';
+    }
+    var code = 'await ' + funcName + '(' + args.join(', ') + ')';
+    return [code, Blockly.JavaScript.ORDER_AWAIT];
+  };

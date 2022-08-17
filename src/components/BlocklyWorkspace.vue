@@ -77,10 +77,11 @@ export default {
     methods: {
         async save() {
             const saved = Blockly.serialization.workspaces.save(this.workspace);
+            //console.log(JSON.stringify(saved));
             await localforage.setItem('workspace', JSON.stringify(saved));
         },
         getCode() {
-            return '(async () => {\n' + Blockly.JavaScript.workspaceToCode(this.workspace) + '})();';
+            return '(async () => {\n' + Blockly.JavaScript.workspaceToCode(this.workspace).replace(/(?<=^|\n)function \w+\(.*\)/g, 'async $&') + '})();';
         }
     }
 }
