@@ -59,6 +59,7 @@ import Blockly from "blockly";
 import { customAlphabet } from 'nanoid';
 
 const nanoid = customAlphabet('1234567890abcdef', 6);
+let ws = null;
 
 export default {
     name: 'App',
@@ -94,11 +95,12 @@ export default {
 
             if(this.codeID === null) {
                 this.codeID = nanoid();
+                this.connectWS();
                 localforage.setItem('code-id', this.codeID);
             }
             await fetch('https://autosumo.techchrism.me/code/upload/' + this.codeID, {
                 method: 'POST',
-                body: this.$refs.workspace.getCode()
+                body: this.$refs.workspace.getCode(this.codeID)
             });
 
             this.changesExist = false;
@@ -111,6 +113,24 @@ export default {
         },
         getCode() {
             console.log(this.$refs.workspace.getCode());
+        },
+        connectWS() {
+            ws = new WebSocket('wss://autosumo.techchrism.me/code/upload/');
+            ws.onopen = () => {
+                ws.send(JSON.stringify({
+                    type: 'register',
+                    id: this.codeID
+                }));
+            }
+            ws.onmessage = e => {
+                const data = JSON.parse(e.data);
+                if(data.type === 'highlight') {
+                    this.$refs.workspace.highlightBlock(data.statement);
+                }
+            }
+            ws.onclose = () => {
+                console.log('Disconnected from websocket');
+            }
         }
     },
     async mounted() {
@@ -124,6 +144,7 @@ export default {
         const codeID = await localforage.getItem('code-id');
         if(codeID !== null) {
             this.codeID = codeID;
+            this.connectWS();
         }
     }
 };

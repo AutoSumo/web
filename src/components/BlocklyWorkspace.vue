@@ -80,9 +80,16 @@ export default {
             //console.log(JSON.stringify(saved));
             await localforage.setItem('workspace', JSON.stringify(saved));
         },
-        getCode() {
+        getCode(codeID) {
             // From https://github.com/google/blockly/issues/2228#issuecomment-706668517
-            return '(async () => {\n' + Blockly.JavaScript.workspaceToCode(this.workspace).replace(/(?<=^|\n)function \w+\(.*\)/g, 'async $&') + '})();';
+            return '(async () => {\n' +
+                Blockly.JavaScript.workspaceToCode(this.workspace)
+                    .replace(/(?<=^|\n)function \w+\(.*\)/g, 'async $&')
+                    .replace(/{{code-id}}/g, codeID)
+                + '})();';
+        },
+        highlightBlock(statement) {
+            this.workspace.highlightBlock(statement);
         }
     }
 }

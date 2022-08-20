@@ -127,3 +127,6 @@ Blockly.JavaScript['procedures_callreturn'] = function(block) {
     const code = `await ${funcName}(${args.join(', ')})`
     return [code, Blockly.JavaScript.ORDER_AWAIT];
 };
+
+Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock("{{code-id}}-" + %1);\n';
+Blockly.JavaScript.addReservedWords('highlightBlock');
