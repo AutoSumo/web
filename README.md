@@ -10,7 +10,7 @@ Includes robot-specific blocks and example code to drive around the arena. Block
 ```mermaid
 flowchart TD
     web["🌐 Web Interface\n(this)"] -->|uploads code| code-server[("💾 Code Server")]
-    code-server -->|hightlight data| web
+    code-server -->|highlight data| web
     code-server -->|downloads code| bot-server["💻 Bot Server"]
     bot-server -->|highlight data| code-server
     bot-server -->|motor instructions| robot["🤖 Robot"]
